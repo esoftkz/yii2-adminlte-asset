@@ -16,7 +16,7 @@ if (Yii::$app->controller->action->id === 'login') {
         app\assets\AppAsset::register($this);
     }
 
-    esoftkz\adminlte\web\AdminLteAsset::register($this);
+    esoftkz\adminlte\web\AdminModAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower/admin-lte/dist');
     ?>
@@ -31,15 +31,14 @@ if (Yii::$app->controller->action->id === 'login') {
         <?php $this->head() ?>
 		<?php	 
 		$js =
-		   '$(document).on("pjax:send", function() {
+		   '$(document).on("pjax:send", function() {				
 				$("#loading").css("top", (($(window).height() - 64) / 2) + $(window).scrollTop() + "px");
 				$("#loading").css("left", (($(window).width() - 31) / 2) + "px");
 				$("#loading").show();
 				
 			});
 			$(document).on("pjax:end", function() {				
-				$("#loading").hide();
-				
+				$("#loading").hide();				
 			});
 			';
 		$this->registerJs($js, $this::POS_READY);

@@ -20,11 +20,26 @@ class Alert extends Widget
      * - $value is the bootstrap alert type (i.e. danger, success, info, warning)
      */
     public $alertTypes = [
-        'error'   => 'alert-danger',
-        'danger'  => 'alert-danger',
-        'success' => 'alert-success',
-        'info'    => 'alert-info',
-        'warning' => 'alert-warning'
+        'error' => [
+            'class' => 'alert-danger',
+            'icon' => '<i class="icon fa fa-ban"></i>',
+        ],
+        'danger' => [
+            'class' => 'alert-danger',
+            'icon' => '<i class="icon fa fa-ban"></i>',
+        ],
+        'success' => [
+            'class' => 'alert-success',
+            'icon' => '<i class="icon fa fa-check"></i>',
+        ],
+        'info' => [
+            'class' => 'alert-info',
+            'icon' => '<i class="icon fa fa-info"></i>',
+        ],
+        'warning' => [
+            'class' => 'alert-warning',
+            'icon' => '<i class="icon fa fa-warning"></i>',
+        ],
     ];
 
     /**
