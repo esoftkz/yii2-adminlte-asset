@@ -27,11 +27,6 @@
             "esoftkz\\adminlte\\": ""
         }
     },
-    "autoload": {
-        "psr-4": {
-            "esoftkz\\": ""
-        }
-    },
     "extra": {
         "branch-alias": {
             "dev-master": "2.0.x-dev"
