@@ -7,3 +7,12 @@
 	z-index: 999999;
 	background: url("./images/loader.gif") no-repeat center center; 	
 }
+
+.placeholder {
+	outline:1px dashed #3c8dbc;
+	border:1px dashed #3c8dbc;
+	visibility: visible;
+}
+.sortable_item{
+	border:1px solid #3c8dbc;
+}

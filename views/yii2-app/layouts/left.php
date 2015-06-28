@@ -20,15 +20,7 @@ $items = [
 <aside class="main-sidebar">
 
     <section class="sidebar">
-
-        
-		
 		<?= Drmenu::widget(['items' => $items]) ?>
-		
-
-        
-		
-
     </section>
 
 </aside>
