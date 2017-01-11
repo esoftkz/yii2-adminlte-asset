@@ -15,14 +15,17 @@
             "email": "2481496@gmail.com"
         }
     ],
-	"minimum-stability": "dev",
+    "minimum-stability": "dev",
     "require": {
-        "yiisoft/yii2": "~2.0.6"
+        "yiisoft/yii2": "~2.0.7"
     },
-	"require-dev": {
+    "require-dev": {
         "yiisoft/yii2-codeception": "~2.0"
     },
-	"autoload": {
+    "suggest": {
+        "yiisoft/yii2-bootstrap": "Used when using layout 'left-menu', 'right-menu' or 'top-menu'"
+    },
+    "autoload": {
         "psr-4": {
             "esoftkz\\adminlte\\": ""
         }
@@ -33,3 +36,4 @@
         }
     }
 }
+
