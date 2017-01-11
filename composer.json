@@ -15,12 +15,9 @@
             "email": "2481496@gmail.com"
         }
     ],
+	"minimum-stability": "dev",
     "require": {
-        "yiisoft/yii2": "2.*",
-        "yiisoft/yii2-bootstrap": "2.*",
-        "cebe/yii2-gravatar": "1.*",
-        "bower-asset/admin-lte": "~2.0",
-        "rmrevin/yii2-fontawesome": "2.9.*"
+        "yiisoft/yii2": "2.*"
     },
 	"autoload": {
         "psr-4": {
