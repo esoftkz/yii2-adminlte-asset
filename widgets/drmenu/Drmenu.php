@@ -16,18 +16,14 @@ class Drmenu extends Widget{
 		parent::init();			
 	}
 	
-	public function run(){
-			
+	public function run(){			
 		$expanded_menu = $this->getNavBar($this->items, Yii::$app->getRequest()->getPathInfo());
 		return $this->render('index', [
            'expanded_menu' => $expanded_menu		  
         ]);		
 		
 	}
-	
-	
-	
-	
+
 	protected static function getNavBar($items, $cur_url, $class = 'sidebar')
 	{
 		$count=count($items);	
@@ -42,8 +38,23 @@ class Drmenu extends Widget{
 				$url=$item['url'];		
 				$url=Url::toRoute($url); 
 
+				
+				$counter = '';
+				if(isset($item['counter'])){					
+					if($item['counter'] == 'faq'){
+						$amount = \common\models\Faq::find()->where('status = 2')->count();
+						if($amount > 0)
+							$counter = '<i class="counter">('.$amount.')</i>';
+					}	
+					if($item['counter'] == 'request' && Yii::$app->user->identity){
+						$amount = \common\models\ObjectsRequest::find()->joinWith('object')->where('isNew = 1')->andWhere('user_id = ' . Yii::$app->user->identity->id)->count();
+						if($amount > 0)
+							$counter = '<i class="counter">('.$amount.')</i>';
+					}
+				}
+				
 				$line=$line.'<li class="'.$active.'">
-								<a href="'.$url.'"><span class="fa '.$icon_class.'"></span>'.$item['label'].'</a>
+								<a href="'.$url.'"><span class="fa '.$icon_class.'"></span>'.$item['label'].$counter.'</a>
 							</li>';
 				
 			}else{	
@@ -66,8 +77,7 @@ class Drmenu extends Widget{
 	
 	protected static function checkSelected($data, $cur_url)
 	{		
-		$active='';
-		
+		$active='';		
 		if(!is_array ($data) ){				
 			if(isset($data) && '/'.$cur_url==$data){
 				$active='active';

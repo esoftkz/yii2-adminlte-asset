@@ -25,7 +25,12 @@ if (Yii::$app->controller->action->id === 'login') {
     <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/icon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicons/icon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/icon/favicon-16x16.png">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
@@ -43,6 +48,10 @@ if (Yii::$app->controller->action->id === 'login') {
 			';
 		$this->registerJs($js, $this::POS_READY);
 		?>
+	<!--[if lt IE 9]>
+	<script src="/js/html5shiv.js" type="text/javascript"></script>
+	<script src="/js/respond.min.js" type="text/javascript"></script>
+	<![endif]-->
     </head>
     <body class="skin-blue">
     <?php $this->beginBody() ?>

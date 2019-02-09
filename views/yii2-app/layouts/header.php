@@ -27,7 +27,7 @@ use yii\bootstrap\NavBar;
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						 
-							<span class="hidden-xs"><?= Yii::$app->user->identity->username ?></span>
+							<span class="hidden-xs"><?= Yii::$app->user->identity->email ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
@@ -35,7 +35,7 @@ use yii\bootstrap\NavBar;
 								
 
 								<p>
-									<?= Yii::$app->user->identity->username ?>
+									<?= Yii::$app->user->identity->email ?>
 									<small><?= Yii::$app->user->identity->email ?></small>
 								</p>
 							</li>
@@ -46,7 +46,7 @@ use yii\bootstrap\NavBar;
 								<div class="pull-right">
 									<?= Html::a(
 										'Выйти',
-										['/cms/user/logout'],
+										['/base/user/logout'],
 										['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
 									) ?>
 								</div>
@@ -60,3 +60,10 @@ use yii\bootstrap\NavBar;
         </div>
     </nav>
 </header>
+<?=ercling\pace\PaceWidget::widget([		
+	'theme'=>'flash',
+	'color' => 'orange',
+	'options'=>[
+		'ajax'=>['trackMethods'=>['GET','POST']]
+	]
+])?>

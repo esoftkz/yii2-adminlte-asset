@@ -1,24 +1,33 @@
 <?php
+use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use esoftkz\adminlte\widgets\Alert;
 ?>
+
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>
-            <?php
-            if ($this->title !== null) {
-                echo $this->title;
-            } else {
-                echo \yii\helpers\Inflector::camel2words(\yii\helpers\Inflector::id2camel($this->context->module->id));
-                echo ($this->context->module->id !== \Yii::$app->id) ? '<small>Module</small>' : '';
-            } ?>
-        </h1>
-        <?=
-        Breadcrumbs::widget(
-            [
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]
-        ) ?>
+		<div class="content-top">
+			<?=
+			Breadcrumbs::widget(
+				[
+					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+				]
+			) ?>
+			<?if(isset($this->params['add-button'])){
+				if(isset($this->params['add-button-url'])){
+					if(isset($this->params['other'])){
+						$url = $this->params['add-button-url'];
+					}else{
+						$url = [$this->params['add-button-url']];
+					}
+				}else
+					$url = ['create'];
+				?>
+				<?= Html::a('<i class="fa fa-plus"></i>' . $this->params['add-button'], $url, ['class' => 'btn btn-plus pull-right']) ?>
+			<?}?>
+				
+			
+		</div>
     </section>
 
     <section class="content">
@@ -29,7 +38,7 @@ use esoftkz\adminlte\widgets\Alert;
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Версия</b> 1.1
+        <b>Версия</b> 1.2
     </div>
-    <strong>Copyright &copy; 2014-2015.</strong>  Разработано в <strong><a href="http://esoft.kz">ESoft Studio</a></strong>.
+    <strong>Copyright &copy; 2014-2019.</strong> 
 </footer>
